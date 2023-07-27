@@ -31,14 +31,14 @@ def extract_text_from_image(image_path):
     return text
 
 
-# Provide the path to your image file
-image_path = "Images/handwrittendata.png"
-
-# Extract text from the image
-extracted_text = extract_text_from_image(image_path)
-
-# Print the extracted text
-print(extracted_text)
+# # Provide the path to your image file
+# image_path = "Images/handwrittendata.png"
+#
+# # Extract text from the image
+# extracted_text = extract_text_from_image(image_path)
+#
+# # Print the extracted text
+# print(extracted_text)
 
 
 

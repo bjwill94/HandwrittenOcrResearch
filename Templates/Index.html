@@ -1,91 +1,94 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-<body>
-  <div class="container">
-    <div class="jumbotron">
-      <h1> OCR Tool </h1>
-      <p> Extract text from Images <p>
-    </div>
-    <label for="image_file">Select image(s)</label>
-    <input class="btn btn-warning" type="file" id="image_file" name="myfile" multiple>
-    <br>
-    <button class="btn btn-success" onclick="performOCR()"> Extract Text </button>
-    <br>
-    <hr style="width:100%;text-align:left;margin-left:0">
-    <hr style="width:100%;text-align:left;margin-left:0">
-    <div id="bulk_result" style="display: grid; grid-template-columns: repeat(5, 1fr); grid-gap: 10px;">
-  </div>
-  </div>
-</body>
+home
 
-<!--<script>-->
-<!--  function performOCR() {-->
-<!--    var files = document.getElementById("image_file").files-->
-<!--    var formData = new FormData();-->
-<!--    var endpoint = '/api/v1/extract_text';-->
-<!--    if (files.length == 1) {-->
-<!--      formData.append('image', files[0])-->
-<!--    }-->
-<!--    else {-->
-<!--      for (var i = 0; i < files.length; i++) {-->
-<!--        formData.append('image' + i.toString(), files[i])-->
-<!--      }-->
-<!--      endpoint = '/api/v1/bulk_extract_text';-->
-<!--    }-->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+<!--<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>-->
+<!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
 
-<!--    $.ajax({-->
-<!--        type: 'POST',-->
-<!--        url: endpoint,-->
-<!--        data: formData,-->
-<!--        contentType: false,-->
-<!--        cache: false,-->
-<!--        processData: false,-->
-<!--        success: function(data) {-->
-<!--          if (endpoint == '/api/v1/extract_text') {-->
-<!--            swal("Converted Text", data.text);-->
-<!--          }-->
-<!--          else {-->
-<!--            swal("Request Recieved", "Converted files will start showing up at the bottom soon!");-->
-<!--            getConvertedFiles(data.task_id, data.num_files);-->
-<!--          }-->
-<!--        }-->
-<!--    });-->
-<!--  }-->
+<!--<body>-->
+<!--  <div class="container">-->
+<!--    <div class="jumbotron">-->
+<!--      <h1> OCR Tool </h1>-->
+<!--      <p> Extract text from Images <p>-->
+<!--    </div>-->
+<!--    <label for="image_file">Select image(s)</label>-->
+<!--    <input class="btn btn-warning" type="file" id="image_file" name="myfile" multiple>-->
+<!--    <br>-->
+<!--    <button class="btn btn-success" onclick="performOCR()"> Extract Text </button>-->
+<!--    <br>-->
+<!--    <hr style="width:100%;text-align:left;margin-left:0">-->
+<!--    <hr style="width:100%;text-align:left;margin-left:0">-->
+<!--    <div id="bulk_result" style="display: grid; grid-template-columns: repeat(5, 1fr); grid-gap: 10px;">-->
+<!--  </div>-->
+<!--  </div>-->
+<!--</body>-->
 
-<!--  function getConvertedFiles(taskID, numFiles) {-->
-<!--    var checker = setInterval(function(){-->
-<!--      $.ajax({-->
-<!--          type: 'GET',-->
-<!--          url: '/api/v1/bulk_output/' + taskID,-->
-<!--          contentType: false,-->
-<!--          cache: false,-->
-<!--          processData: false,-->
-<!--          success: function(data) {-->
-<!--            wrapper = document.getElementById("bulk_result")-->
-<!--            for (var key in data.output) {-->
-<!--              var element = document.createElement("button");-->
-<!--              element.setAttribute("class", "btn btn-primary")-->
-<!--              element.setAttribute("info", data.output[key])-->
-<!--              element.setAttribute("id", key)-->
-<!--              element.setAttribute("onclick", "displayText(this.id)")-->
-<!--              element.innerHTML = key-->
-<!--              wrapper.appendChild(element)-->
-<!--            }-->
-<!--            if (Object.keys(data.output).length == numFiles) {-->
-<!--                stopChecker()-->
-<!--            }-->
-<!--          }-->
-<!--      });-->
-<!--    }, 3000);-->
+<!--&lt;!&ndash;<script>&ndash;&gt;-->
+<!--&lt;!&ndash;  function performOCR() {&ndash;&gt;-->
+<!--&lt;!&ndash;    var files = document.getElementById("image_file").files&ndash;&gt;-->
+<!--&lt;!&ndash;    var formData = new FormData();&ndash;&gt;-->
+<!--&lt;!&ndash;    var endpoint = '/api/v1/extract_text';&ndash;&gt;-->
+<!--&lt;!&ndash;    if (files.length == 1) {&ndash;&gt;-->
+<!--&lt;!&ndash;      formData.append('image', files[0])&ndash;&gt;-->
+<!--&lt;!&ndash;    }&ndash;&gt;-->
+<!--&lt;!&ndash;    else {&ndash;&gt;-->
+<!--&lt;!&ndash;      for (var i = 0; i < files.length; i++) {&ndash;&gt;-->
+<!--&lt;!&ndash;        formData.append('image' + i.toString(), files[i])&ndash;&gt;-->
+<!--&lt;!&ndash;      }&ndash;&gt;-->
+<!--&lt;!&ndash;      endpoint = '/api/v1/bulk_extract_text';&ndash;&gt;-->
+<!--&lt;!&ndash;    }&ndash;&gt;-->
 
-<!--    function stopChecker() {-->
-<!--      clearInterval(checker)-->
-<!--    }-->
-<!--  }-->
+<!--&lt;!&ndash;    $.ajax({&ndash;&gt;-->
+<!--&lt;!&ndash;        type: 'POST',&ndash;&gt;-->
+<!--&lt;!&ndash;        url: endpoint,&ndash;&gt;-->
+<!--&lt;!&ndash;        data: formData,&ndash;&gt;-->
+<!--&lt;!&ndash;        contentType: false,&ndash;&gt;-->
+<!--&lt;!&ndash;        cache: false,&ndash;&gt;-->
+<!--&lt;!&ndash;        processData: false,&ndash;&gt;-->
+<!--&lt;!&ndash;        success: function(data) {&ndash;&gt;-->
+<!--&lt;!&ndash;          if (endpoint == '/api/v1/extract_text') {&ndash;&gt;-->
+<!--&lt;!&ndash;            swal("Converted Text", data.text);&ndash;&gt;-->
+<!--&lt;!&ndash;          }&ndash;&gt;-->
+<!--&lt;!&ndash;          else {&ndash;&gt;-->
+<!--&lt;!&ndash;            swal("Request Recieved", "Converted files will start showing up at the bottom soon!");&ndash;&gt;-->
+<!--&lt;!&ndash;            getConvertedFiles(data.task_id, data.num_files);&ndash;&gt;-->
+<!--&lt;!&ndash;          }&ndash;&gt;-->
+<!--&lt;!&ndash;        }&ndash;&gt;-->
+<!--&lt;!&ndash;    });&ndash;&gt;-->
+<!--&lt;!&ndash;  }&ndash;&gt;-->
 
-<!--function displayText(id) {-->
-<!--  swal("Converted Text", document.getElementById(id).getAttribute("info"))-->
-<!--}-->
-<!--</script>-->
+<!--&lt;!&ndash;  function getConvertedFiles(taskID, numFiles) {&ndash;&gt;-->
+<!--&lt;!&ndash;    var checker = setInterval(function(){&ndash;&gt;-->
+<!--&lt;!&ndash;      $.ajax({&ndash;&gt;-->
+<!--&lt;!&ndash;          type: 'GET',&ndash;&gt;-->
+<!--&lt;!&ndash;          url: '/api/v1/bulk_output/' + taskID,&ndash;&gt;-->
+<!--&lt;!&ndash;          contentType: false,&ndash;&gt;-->
+<!--&lt;!&ndash;          cache: false,&ndash;&gt;-->
+<!--&lt;!&ndash;          processData: false,&ndash;&gt;-->
+<!--&lt;!&ndash;          success: function(data) {&ndash;&gt;-->
+<!--&lt;!&ndash;            wrapper = document.getElementById("bulk_result")&ndash;&gt;-->
+<!--&lt;!&ndash;            for (var key in data.output) {&ndash;&gt;-->
+<!--&lt;!&ndash;              var element = document.createElement("button");&ndash;&gt;-->
+<!--&lt;!&ndash;              element.setAttribute("class", "btn btn-primary")&ndash;&gt;-->
+<!--&lt;!&ndash;              element.setAttribute("info", data.output[key])&ndash;&gt;-->
+<!--&lt;!&ndash;              element.setAttribute("id", key)&ndash;&gt;-->
+<!--&lt;!&ndash;              element.setAttribute("onclick", "displayText(this.id)")&ndash;&gt;-->
+<!--&lt;!&ndash;              element.innerHTML = key&ndash;&gt;-->
+<!--&lt;!&ndash;              wrapper.appendChild(element)&ndash;&gt;-->
+<!--&lt;!&ndash;            }&ndash;&gt;-->
+<!--&lt;!&ndash;            if (Object.keys(data.output).length == numFiles) {&ndash;&gt;-->
+<!--&lt;!&ndash;                stopChecker()&ndash;&gt;-->
+<!--&lt;!&ndash;            }&ndash;&gt;-->
+<!--&lt;!&ndash;          }&ndash;&gt;-->
+<!--&lt;!&ndash;      });&ndash;&gt;-->
+<!--&lt;!&ndash;    }, 3000);&ndash;&gt;-->
+
+<!--&lt;!&ndash;    function stopChecker() {&ndash;&gt;-->
+<!--&lt;!&ndash;      clearInterval(checker)&ndash;&gt;-->
+<!--&lt;!&ndash;    }&ndash;&gt;-->
+<!--&lt;!&ndash;  }&ndash;&gt;-->
+
+<!--&lt;!&ndash;function displayText(id) {&ndash;&gt;-->
+<!--&lt;!&ndash;  swal("Converted Text", document.getElementById(id).getAttribute("info"))&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+<!--&lt;!&ndash;</script>&ndash;&gt;-->
