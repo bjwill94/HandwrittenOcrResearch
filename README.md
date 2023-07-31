@@ -40,6 +40,11 @@ You can install these using the requirements.txt file: pip install -r requiremen
 For Tesseract OCR you also need to install its setup which can be found in the following link: https://github.com/UB-Mannheim/tesseract/wiki
 
 ## Demo
+Streamlit Ui to upload an image to perform OCR
+
+<img width="660" alt="image" src="https://github.com/bjwill94/HandwrittenOcrResearch/assets/56854060/677f6d70-e3bd-487d-99e0-f6aba2883bf4">
+
+Output after performing the OCR 
 
 <img width="614" alt="image" src="https://github.com/bjwill94/HandwrittenOcrResearch/assets/56854060/a0182cbc-24f2-4f38-bac2-2087f9f8238a">
 
