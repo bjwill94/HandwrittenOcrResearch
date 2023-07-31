@@ -14,17 +14,17 @@ The texts extracted from the image is passed back to the streamlitUi using the f
 ## Requirements
 Make sure you have the following dependencies installed:
 
-easyocr
-fastapi
-ipython
-paddleocr
-Pillow
-Pillow
-pytesseract
-Requests
-streamlit
-transformers
-uvicorn
+1. easyocr
+2. fastapi
+3. ipython
+4. paddleocr
+5. Pillow
+6. Pillow
+7. pytesseract
+8. Requests
+9. streamlit
+10. transformers
+11. uvicorn
 
 You can install these using the requirements.txt file: pip install -r requirements.txt
 ## Usage/Examples
